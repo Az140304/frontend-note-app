@@ -1,6 +1,6 @@
 import express, { response } from "express";
 import cors from "cors";
-import NoteRoute from '../backend/routes/NoteRoute.js';
+import NoteRoute from './backend/routes/NoteRoute.js';
 import bodyParser from "body-parser"
 import path from 'path';
 import {fileURLToPath} from 'url';

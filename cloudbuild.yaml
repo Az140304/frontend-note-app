@@ -1,18 +1,7 @@
 steps:
-  # Step 1: Build the Docker image
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/frontend-app', '.']
-
-  # Step 2: Push the image to Container Registry
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/frontend-app']
-
-  # Step 3: Deploy to App Engine using the custom runtime
+  # Just deploy directly, App Engine will use the Dockerfile in the root
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['app', 'deploy', '--image-url=gcr.io/$PROJECT_ID/frontend-app']
-
-images:
-  - 'gcr.io/$PROJECT_ID/frontend-app'
-
+    args: ['app', 'deploy']
+    
 options:
   logging: CLOUD_LOGGING_ONLY

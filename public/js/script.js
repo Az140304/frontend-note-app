@@ -1,4 +1,4 @@
-const apiUrl = "https://noteapp-be-746828199699.us-central1.run.app/api/";
+const apiUrl = "https://noteapp-be-746828199699.us-central1.run.app/api/notes";
 
 document.getElementById("userForm").addEventListener("submit", async (e) => {
     e.preventDefault();

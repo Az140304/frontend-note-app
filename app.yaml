@@ -1,8 +1,4 @@
 runtime: nodejs20
 service: noteapp-fa
 instance_class: F1
-
-entrypoint: node index.js  # file utama yang menjalankan server
-
-env_variables:
-  NODE_ENV: "production"
+entrypoint: node index.js

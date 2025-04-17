@@ -1,4 +1,4 @@
-const apiUrl = "https://noteapp-be-746828199699.us-central1.run.app/notes";
+const apiUrl = "https://noteapp-be-746828199699.us-central1.run.app/";
 
 document.getElementById("userForm").addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -7,7 +7,7 @@ document.getElementById("userForm").addEventListener("submit", async (e) => {
     const data = Object.fromEntries(formData.entries());
 
     try {
-        const response = await fetch("/add-notes", {
+        const response = await fetch(`${apiUrl}/add-notes/`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
@@ -27,7 +27,7 @@ document.getElementById("userForm").addEventListener("submit", async (e) => {
 
 async function loadNotes() {
     try {
-        const res = await fetch(apiUrl);
+        const res = await fetch(`${apiUrl}/notes/`);
         const notes = await res.json();
         const noteList = document.getElementById("note-lists");
         noteList.innerHTML = "";
@@ -57,7 +57,7 @@ async function loadNotes() {
                 const data = Object.fromEntries(formData.entries());
 
                 try {
-                    const response = await fetch(`/edit-notes/${noteId}`, {
+                    const response = await fetch(`${apiUrl}/edit-notes/${noteId}`, {
                         method: "PUT",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify(data),
@@ -80,7 +80,7 @@ async function loadNotes() {
                 const noteId = button.getAttribute("data-id");
                 if (confirm("Are you sure you want to delete this note?")) {
                     try {
-                        const response = await fetch(`/delete-notes/${noteId}`, { method: "DELETE" });
+                        const response = await fetch(`${apiUrl}/delete-notes/${noteId}`, { method: "DELETE" });
                         if (response.ok) {
                             alert("Note deleted successfully!");
                             loadNotes();

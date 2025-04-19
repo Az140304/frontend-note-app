@@ -1,4 +1,4 @@
 runtime: nodejs20
 service: noteapp-fa
-instance_class: F1
+instance_class: F1 # instance "F1" merupakan instance paling ringan 
 entrypoint: node index.js
